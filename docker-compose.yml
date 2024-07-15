@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  php:
+    build: ./project
+    ports:
+      - 8081:80
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1960
+      MYSQL_DATABASE: website
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 1960
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+
+
+
+
+
